@@ -1,5 +1,12 @@
 Kurenaido
 - adjusted position of cedilla on C / c. changed shape on cedilla too to avoid overlap errors
 - changed capital ẞ/ß to more acceptable form
--tweaked some slightly awkward curves
--updated ЖжКк height
+- tweaked some slightly awkward curves
+- updated ЖжКк height
+- correcrted fractions
+- fixed outline of 譏
+- updated glyph info
+- corrected full width and half width glyph widths
+- corrected / added vert glyphs to font
+- updated OT features
+- added missing Google Core glyphs
