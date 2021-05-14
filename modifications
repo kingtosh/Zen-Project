@@ -1,6 +1,6 @@
 Kurenaido
 - adjusted position of cedilla on C / c. changed shape on cedilla too to avoid overlap errors
-- changed capital ẞ/ß to more acceptable form
+- changed capital ẞ/ß
 - tweaked some slightly awkward curves
 - updated ЖжКк height
 - correcrted fractions
@@ -10,3 +10,23 @@ Kurenaido
 - corrected / added vert glyphs to font
 - updated OT features
 - added missing Google Core glyphs
+- Added BASE
+
+Zen Antique
+- merged into a single glyphs source
+- updated glyph info
+- corrected / added vert glyphs to font
+- corrected width of full width forms
+- made all Kanji 1000 width. 
+- changed capital ẞ/ß
+- corrected widths of Cyrillic in Zen Antique S
+- updated OT features
+- Added BASE
+
+Zen Kaku Gothic A
+- merged into a single glyphs source
+- updated glyph info
+- corrected / added vert glyphs to font
+- corrected width of full width Yen form
+- updated OT features
+- corrected swapped small kana/kata where swapped with vert form
