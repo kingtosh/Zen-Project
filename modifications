@@ -3,7 +3,7 @@ Kurenaido
 - changed capital ẞ/ß
 - tweaked some slightly awkward curves
 - updated ЖжКк height
-- correcrted fractions
+- corrected fractions
 - fixed outline of 譏
 - updated glyph info
 - corrected full width and half width glyph widths
@@ -30,3 +30,7 @@ Zen Kaku Gothic A
 - corrected width of full width Yen form
 - updated OT features
 - corrected swapped small kana/kata where swapped with vert form
+- changed capital ẞ/ß
+- Added BASE
+
+(will need to modify BASE table based on the instance and import)

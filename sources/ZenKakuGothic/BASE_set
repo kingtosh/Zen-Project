@@ -1,0 +1,121 @@
+# Light
+
+table BASE {
+  HorizAxis.BaseTagList     icfb  icft  ideo  romn;
+  HorizAxis.BaseScriptList  
+                DFLT  ideo   -68   828  -120     0,
+                hani  ideo   -68   828  -120     0,
+                kana  ideo   -68   828  -120     0,
+                latn  romn   -68   828  -120     0,
+                cyrl  romn   -68   828  -120     0,
+                grek  romn   -68   828  -120     0;
+
+  VertAxis.BaseTagList      icfb  icft  ideo  romn;
+  VertAxis.BaseScriptList 
+                DFLT  ideo    47   953     0   120,
+                hani  ideo    47   953     0   120,
+                kana  ideo    47   953     0   120,
+                latn  romn    47   953     0   120,
+                cyrl  romn    47   953     0   120,
+                grek  romn    47   953     0   120;
+} BASE;
+
+
+
+
+# Regular
+
+table BASE {
+  HorizAxis.BaseTagList     icfb  icft  ideo  romn;
+  HorizAxis.BaseScriptList  
+                DFLT  ideo   -70   830  -120     0,
+                hani  ideo   -70   830  -120     0,
+                kana  ideo   -70   830  -120     0,
+                latn  romn   -70   830  -120     0,
+                cyrl  romn   -70   830  -120     0,
+                grek  romn   -70   830  -120     0;
+
+  VertAxis.BaseTagList      icfb  icft  ideo  romn;
+  VertAxis.BaseScriptList 
+                DFLT  ideo    45   955     0   120,
+                hani  ideo    45   955     0   120,
+                kana  ideo    45   955     0   120,
+                latn  romn    45   955     0   120,
+                cyrl  romn    45   955     0   120,
+                grek  romn    45   955     0   120;
+} BASE;
+
+
+
+
+# Medium
+
+table BASE {
+  HorizAxis.BaseTagList     icfb  icft  ideo  romn;
+  HorizAxis.BaseScriptList  
+                DFLT  ideo   -73   833  -120     0,
+                hani  ideo   -73   833  -120     0,
+                kana  ideo   -73   833  -120     0,
+                latn  romn   -73   833  -120     0,
+                cyrl  romn   -73   833  -120     0,
+                grek  romn   -73   833  -120     0;
+
+  VertAxis.BaseTagList      icfb  icft  ideo  romn;
+  VertAxis.BaseScriptList 
+                DFLT  ideo    42   958     0   120,
+                hani  ideo    42   958     0   120,
+                kana  ideo    42   958     0   120,
+                latn  romn    42   958     0   120,
+                cyrl  romn    42   958     0   120,
+                grek  romn    42   958     0   120;
+} BASE;
+
+
+
+
+# Bold
+
+table BASE {
+  HorizAxis.BaseTagList     icfb  icft  ideo  romn;
+  HorizAxis.BaseScriptList  
+                DFLT  ideo   -76   836  -120     0,
+                hani  ideo   -76   836  -120     0,
+                kana  ideo   -76   836  -120     0,
+                latn  romn   -76   836  -120     0,
+                cyrl  romn   -76   836  -120     0,
+                grek  romn   -76   836  -120     0;
+
+  VertAxis.BaseTagList      icfb  icft  ideo  romn;
+  VertAxis.BaseScriptList 
+                DFLT  ideo    39   961     0   120,
+                hani  ideo    39   961     0   120,
+                kana  ideo    39   961     0   120,
+                latn  romn    39   961     0   120,
+                cyrl  romn    39   961     0   120,
+                grek  romn    39   961     0   120;
+} BASE;
+
+
+
+
+# Heavy
+
+table BASE {
+  HorizAxis.BaseTagList     icfb  icft  ideo  romn;
+  HorizAxis.BaseScriptList  
+                DFLT  ideo   -78   838  -120     0,
+                hani  ideo   -78   838  -120     0,
+                kana  ideo   -78   838  -120     0,
+                latn  romn   -78   838  -120     0,
+                cyrl  romn   -78   838  -120     0,
+                grek  romn   -78   838  -120     0;
+
+  VertAxis.BaseTagList      icfb  icft  ideo  romn;
+  VertAxis.BaseScriptList 
+                DFLT  ideo    37   963     0   120,
+                hani  ideo    37   963     0   120,
+                kana  ideo    37   963     0   120,
+                latn  romn    37   963     0   120,
+                cyrl  romn    37   963     0   120,
+                grek  romn    37   963     0   120;
+} BASE;
