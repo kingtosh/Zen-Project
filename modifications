@@ -1,6 +1,6 @@
 Kurenaido
 - adjusted position of cedilla on C / c. changed shape on cedilla too to avoid overlap errors
-- changed capital ẞ/ß
+- modified capital ẞ/ß
 - tweaked some slightly awkward curves
 - updated ЖжКк height
 - corrected fractions
@@ -18,7 +18,7 @@ Zen Antique
 - corrected / added vert glyphs to font
 - corrected width of full width forms
 - made all Kanji 1000 width. 
-- changed capital ẞ/ß
+- modified capital ẞ/ß
 - corrected widths of Cyrillic in Zen Antique S
 - updated OT features
 - Added BASE
@@ -30,10 +30,8 @@ Zen Kaku Gothic
 - corrected width of full width Yen form
 - updated OT features
 - corrected swapped small kana/kata where swapped with vert form
-- changed capital ẞ/ß
-- Added BASE
-
-(will need to modify BASE table based on the instance and import)
+- modified capital ẞ/ß
+- Added BASE (will need to modify based on instance)
 
 The only difference (I can find) between Zen Kaku Gothic A and N are the Kana included. So I will split and rebuild the fonts from separate Glyphs files as usual.
 
@@ -41,3 +39,16 @@ Zen Maru Gothic
 - merged into a single glyphs source
 - updated glyph info
 - corrected / added vert glyphs to font
+- corrected width of full width forms
+- Added BASE (will need to modify based on instance)
+- modified capital ẞ/ß
+
+Zen Old Mincho
+- merged into a single glyphs source
+- updated glyph info
+- corrected / added vert glyphs to font
+- corrected width of full width forms
+- fixed LOTS of interpolation errors and other oddities (eg ∵ ∴ ] )
+- removed empty glyph (asciitilde.full)
+- Added BASE
+- modified capital ẞ/ß
