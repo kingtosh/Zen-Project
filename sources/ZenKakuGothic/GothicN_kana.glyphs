@@ -1,5 +1,5 @@
 {
-.appVersion = "1349";
+.appVersion = "1352";
 DisplayStrings = (
 "/wasmall-kata.vert"
 );
@@ -326,7 +326,7 @@ alignmentZones = (
 );
 ascender = 860;
 capHeight = 700;
-custom = Heavy;
+custom = Black;
 customParameters = (
 {
 name = typoAscender;
@@ -75062,8 +75062,8 @@ interpolationWeight = 900;
 instanceInterpolations = {
 "542E90B0-D43E-4A29-B40D-A2B642C3CEF5" = 1;
 };
-name = Heavy;
-weightClass = Heavy;
+name = Black;
+weightClass = Black;
 }
 );
 manufacturer = Positype;

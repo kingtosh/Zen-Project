@@ -33,7 +33,7 @@ Zen Kaku Gothic
 - updated OT features
 - corrected swapped small kana/kata where swapped with vert form
 - modified capital ẞ/ß
-- Added BASE (will need to modify based on instance)
+- Added BASE
 - removed excess layers
 
 The only difference (I can find) between Zen Kaku Gothic A and N are the Kana included. So I will split and rebuild the fonts from separate Glyphs files as usual.
@@ -46,6 +46,7 @@ Zen Maru Gothic
 - Added BASE (will need to modify based on instance)
 - modified capital ẞ/ß
 - removed excess layers
+- added missing Google Core Latin glyphs
 
 Zen Old Mincho
 - merged into a single glyphs source
@@ -57,4 +58,37 @@ Zen Old Mincho
 - Added BASE
 - modified capital ẞ/ß
 - removed excess layers
-- converted to a 3 weight font (Regular, Bold, Heavy)
+- converted to a 3 weight font (Regular, Bold, Black)
+
+
+
+
+All fonts build correctly without issue, and without any FAILS. 
+
+
+                           ,@.
+                         ,@.@@,.
+                   ,@@,.@@@.  @.@@@,.
+                 ,@@. @@@.     @@. @@,.
+         ,@@@.@,.@.              @.  @@@@,.@.@@,.
+    ,@@.@.     @@.@@.            @,.    .@’ @’  @@,
+  ,@@. @.          .@@.@@@.  @@’                  @,
+ ,@.  @@.                                          @,
+ @.     @,@@,.     ,                             .@@,
+ @,.       .@,@@,.         .@@,.  ,       .@@,  @, @,
+ @.                             .@. @ @@,.    ,      @
+  @,.@@.     @,.      @@,.      @.           @,.    @’
+   @@||@,.  @’@,.       @@,.  @@ @,.        @’@@,  @’
+      \\@@@@’  @,.      @’@@@@’   @@,.   @@@’ //@@@’
+       |||||||| @@,.  @@’ |||||||  |@@@|@||  ||
+        \\\\\\\  ||@@@||  |||||||  |||||||  //
+         |||||||  ||||||  ||||||   ||||||  ||
+          \\\\\\  ||||||  ||||||  ||||||  //
+           ||||||  |||||  |||||   |||||  ||
+            \\\\\  |||||  |||||  |||||  //
+             |||||  ||||  |||||  ||||  ||
+              \\\\  ||||  ||||  ||||  //
+               ||||||||||||||||||||||||
+
+         No check is failing. Get a cupcake!
+       <<Art by Tony de Marco, July 26, 2018>>

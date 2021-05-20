@@ -1,8 +1,5 @@
 {
-.appVersion = "1349";
-DisplayStrings = (
-""
-);
+.appVersion = "1352";
 classes = (
 {
 automatic = 1;
@@ -408,7 +405,7 @@ alignmentZones = (
 );
 ascender = 880;
 capHeight = 700;
-custom = Heavy;
+custom = Black;
 customParameters = (
 {
 name = typoAscender;
@@ -88155,8 +88152,8 @@ interpolationWeight = 900;
 instanceInterpolations = {
 "192F6294-2DDB-4A85-B973-E64E677F808A" = 1;
 };
-name = Heavy;
-weightClass = Heavy;
+name = Black;
+weightClass = Black;
 }
 );
 manufacturer = Positype;

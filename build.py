@@ -9,6 +9,7 @@ from pathlib import Path
 import argparse
 import ufo2ft, ufoLib2, os, glob
 import fontmake.instantiator
+import copy
 
 def DSIG_modification(font:TTFont):
     font["DSIG"] = newTable("DSIG")     #need that stub dsig
@@ -34,25 +35,83 @@ def step_merge_glyphs_from_ufo(path: Path, instance: ufoLib2.Font, *args) -> Non
                 instance.addGlyph(ufo[glyph.name])
 
 def make_static(instance_descriptor, generator):
-    instance = generator.generate_instance(instance_descriptor)
+    if "kaku" in str(instance_descriptor.name).lower():
+        instance1 = generator.generate_instance(instance_descriptor)
+        instance2 = copy.deepcopy(instance1)
 
-    instance.lib['com.github.googlei18n.ufo2ft.filters'] = [{ # extra safe :)
-        "name": "flattenComponents",
-        "pre": 1,
-    }]
+        instance1.info.familyName = "Zen Kaku Gothic N"
+        instance2.info.familyName = "Zen Kaku Gothic A"
 
-    static_ttf = ufo2ft.compileTTF(
-        instance, 
-        removeOverlaps=True, 
-        overlapsBackend="pathops", 
-        useProductionNames=True,
-    )
+        instance1.lib['com.github.googlei18n.ufo2ft.filters'] = [{ # extra safe :)
+            "name": "flattenComponents",
+            "pre": 1,
+        }]
+        instance2.lib['com.github.googlei18n.ufo2ft.filters'] = [{ # extra safe :)
+            "name": "flattenComponents",
+            "pre": 1,
+        }]
+        print ("["+instance_descriptor.name+"] Merging A and N kana")
+        step_merge_glyphs_from_ufo(Path("sources/ZenKakuGothic/ZenKakuGothicN-"+instance_descriptor.styleName+".ufo"), instance1)
+        step_merge_glyphs_from_ufo(Path("sources/ZenKakuGothic/ZenKakuGothicA-"+instance_descriptor.styleName+".ufo"), instance2)
 
-    DSIG_modification(static_ttf)
-    print ("["+instance_descriptor.name+"] Saving")
-    output = "fonts/ttf/"+str(instance_descriptor.name).replace(" ","")+".ttf"
-    static_ttf.save(output)
-    autohint(output)
+        print ("["+instance_descriptor.name+"] Generating")
+
+        N_ttf = ufo2ft.compileTTF(
+            instance1, 
+            removeOverlaps=True, 
+            overlapsBackend="pathops", 
+            useProductionNames=True,
+        )
+
+        A_ttf = ufo2ft.compileTTF(
+            instance2, 
+            removeOverlaps=True, 
+            overlapsBackend="pathops", 
+            useProductionNames=True,
+        )
+
+        DSIG_modification(A_ttf)
+        DSIG_modification(N_ttf)
+        print ("["+instance_descriptor.name+"] Saving")
+
+        if instance_descriptor.styleName != "Regular":
+            base_load = TTFont()
+            TTFont.importXML(base_load, Path("sources/ZenMaruGothic/BASE-"+instance_descriptor.styleName+".ttx"))
+            A_ttf["BASE"] = base_load["BASE"]
+            N_ttf["BASE"] = base_load["BASE"]
+
+        A_ttf.save("fonts/ttf/"+str(instance_descriptor.familyName).replace(" ","")+"A-"+instance_descriptor.styleName+".ttf")
+        N_ttf.save("fonts/ttf/"+str(instance_descriptor.familyName).replace(" ","")+"N-"+instance_descriptor.styleName+".ttf")
+    
+        autohint("fonts/ttf/"+str(instance_descriptor.familyName).replace(" ","")+"A-"+instance_descriptor.styleName+".ttf")
+        autohint("fonts/ttf/"+str(instance_descriptor.familyName).replace(" ","")+"N-"+instance_descriptor.styleName+".ttf")
+
+    else:
+        instance = generator.generate_instance(instance_descriptor)
+
+        instance.lib['com.github.googlei18n.ufo2ft.filters'] = [{ # extra safe :)
+            "name": "flattenComponents",
+            "pre": 1,
+        }]
+
+        static_ttf = ufo2ft.compileTTF(
+            instance, 
+            removeOverlaps=True, 
+            overlapsBackend="pathops", 
+            useProductionNames=True,
+        )
+
+        DSIG_modification(static_ttf)
+        print ("["+instance_descriptor.name+"] Saving")
+        output = "fonts/ttf/"+str(instance_descriptor.familyName).replace(" ","")+"-"+instance_descriptor.styleName+".ttf"
+
+        if "maru" in str(instance_descriptor.name).lower() and instance_descriptor.styleName != "Regular":
+            base_load = TTFont()
+            TTFont.importXML(base_load, Path("sources/ZenMaruGothic/BASE-"+instance_descriptor.styleName+".ttx"))
+            static_ttf["BASE"] = base_load["BASE"]
+        static_ttf.save(output)
+        autohint(output)
+            
 
 
 def autohint(file):
@@ -99,6 +158,7 @@ if __name__ == "__main__":
     if args.all:
         args.kure = True
         args.kaku = True
+        args.antique = True
         args.maru = True
         args.old = True
         args.sources = True
@@ -106,7 +166,7 @@ if __name__ == "__main__":
     if args.sources:
         print ("[ZEN] Generating UFO sources")
         for file in sources.glob("**/*.glyphs"):
-            print ("["+str(file).split("/")[1]+"] generating source")
+            print ("["+str(file)+"] generating source")
             main(("glyphs2ufo", str(file), "--write-public-skip-export-glyphs"))
         
         for ufo in sources.glob("*.ufo"): # need to put this command in all the source UFOs to make sure it is implemented
@@ -120,6 +180,12 @@ if __name__ == "__main__":
 
     if args.kure:
         font = ufoLib2.Font.open("sources/Kurenaido/ZenKurenaido-Regular.ufo")
+
+        font.lib['com.github.googlei18n.ufo2ft.filters'] = [{
+            "name": "flattenComponents",
+            "pre": 1,
+        }]
+
         exportFont = ufo2ft.compileTTF(
             font, 
             removeOverlaps=True, 
@@ -127,8 +193,8 @@ if __name__ == "__main__":
             useProductionNames=True,
         )
         DSIG_modification(exportFont)
-        exportFont.save("fonts/ttf/Kurenaido.ttf")
-        autohint("fonts/ttf/Kurenaido.ttf")
+        exportFont.save("fonts/ttf/ZenKurenaido-Regular.ttf")
+        autohint("fonts/ttf/ZenKurenaido-Regular.ttf")
 
     if args.antique:
         ds = DesignSpaceDocument.fromfile(sources / "ZenAntique/ZenAntique.designspace")
@@ -182,6 +248,31 @@ if __name__ == "__main__":
 
     if args.old:
         ds = DesignSpaceDocument.fromfile(sources / "ZenOldMincho/ZenOldMincho.designspace")
+        ds.loadSourceFonts(ufoLib2.Font.open)
+        generator = fontmake.instantiator.Instantiator.from_designspace(ds)
+
+        pool = multiprocessing.pool.Pool(processes=multiprocessing.cpu_count())
+        processes = []
+
+        for instance_descriptor in ds.instances: # GOTTA GO FAST
+            processes.append(
+                pool.apply_async(
+                    make_static,
+                    (
+                        instance_descriptor,
+                        generator,
+                    ),
+                )
+            )
+
+        pool.close()
+        pool.join()
+        for process in processes:
+            process.get()
+        del processes, pool
+
+    if args.kaku:
+        ds = DesignSpaceDocument.fromfile(sources / "ZenKakuGothic/ZenKakuGothic.designspace")
         ds.loadSourceFonts(ufoLib2.Font.open)
         generator = fontmake.instantiator.Instantiator.from_designspace(ds)
 
